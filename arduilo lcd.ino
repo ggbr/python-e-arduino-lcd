@@ -1,10 +1,10 @@
-//Programa: Teste de Display LCD 16 x 2
-//Autor: FILIPEFLOP
 
-//Carrega a biblioteca LiquidCrystal
+//Autor: Gabriel Sousa Dos Santos
+
+
 #include <LiquidCrystal.h>
 
-//Define os pinos que serão utilizados para ligação ao display
+
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 long byteRead;
 int ini  = 0;
@@ -65,9 +65,30 @@ void loop()
 if (Serial.available())  //verifica se tem dados diponível para leitura
   {
    String recebido = leStringSerial();
-     lcd.clear();
-    lcd.setCursor(1, 0);
-    lcd.print(recebido);
+   
+   switch(recebido[0]){ 
+      case '2' :
+        lcd.setCursor(0, 0);
+      break;
+      case '3':
+        lcd.setCursor(0, 1);
+        break;
+       case '4':
+        lcd.clear();
+        break;
+       case '5':
+        lcd.clear();
+        break;
+        
+      default:
+        lcd.print(recebido);
+      break;
+      }
+
+ 
+    
+    
+    
     
   }
     

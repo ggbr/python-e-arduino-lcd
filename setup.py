@@ -37,13 +37,13 @@ def painel(usb):
         
         print('Escolha uma opção:')
         print('1 -  Enviar mensagem para o Arduino')
-        print('2 -  (Comando a ser implementado)')
-        print('3 -  (Comando a ser implementado)')
-        print('4 -  (Comando a ser implementado)')
+        print('2 -  Ir para linha de cima')
+        print('3 -  Ir para linha de baixo')
+        print('4 -  Limpar LCD')
         print('5 -  (Comando a ser implementado)')
         print('6 -  (Comando a ser implementado)')
         print('7 -  (Comando a ser implementado)')
-        print('8 -  Limpar tela')
+        print('8 -  Limpar Terminhal')
         
         print('9 -  Sair')
         
@@ -65,11 +65,12 @@ def painel(usb):
                 usb.write(bytes(msg.encode(encoding='UTF-8')))
                
             elif (op == 2):
-                print('comando esta sendo implementado ...')
+                usb.write(b'2') 
             elif (op == 3):
-                print('comando esta sendo implementado ...')                
+                usb.write(b'3')               
             elif (op == 4):
-                print('comando esta sendo implementado ...')
+                usb.write(b'4') 
+                print('Limpando tela do LCD...')
             elif (op == 5):
                 print('comando esta sendo implementado ...')            
             elif (op == 6):
