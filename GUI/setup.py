@@ -1,4 +1,5 @@
 from tkinter import *
+from painel import *
 
 import serial
 class Janela:
@@ -12,24 +13,36 @@ class Janela:
         self.usb = self.usbBusca()
         pass
     
-    def usbBusca(self,):
+   
+'''
+raiz=Tk()
+Janela(raiz)
+raiz.mainloop()
+'''
+
+def usbBusca():
         usbList = 'COM0','COM1','COM2','COM4','COM5','COM6','COM7','COM8','COM9','COM10','COM11','COM12','COM13'
         i = 0
         con = False
         print("procurando arduino ...")
         for usb in usbList:
             try:
-                con = serial.Serial(usb)
+                serialusb = serial.Serial(usb)
                 print(usb)
-                
+                serialusb.close()
+                return usb
             except:
                 i = i + 1
                 if(i == 15):
                     print('Arduino nao encontrado')
-                    com = 0
+                    usb = 0
                     
-        return con
+        
 
-raiz=Tk()
-Janela(raiz)
-raiz.mainloop()
+
+tk = Tk()
+
+a= usbBusca()
+
+Painel(tk ,a)
+tk.mainloop()
