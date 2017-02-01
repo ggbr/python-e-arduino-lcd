@@ -1,15 +1,16 @@
 from tkinter import *
-from serial import *
+import serial 
 
 class Painel:
 
-    def __init__(self,janela, usb):
-        self.usb = usb
+    def __init__(self,janela):
+        self.usb = ''
         self.fr1 = Frame(janela)
         self.fr1.pack()
 
         self.bt1 = Button(self.fr1, text = "enviar menssagem")
         self.bt1.pack()
+        self.bt1.bind("<Button-1>", self.print)
 
         self.bt2 = Button(self.fr1, text = "Ir para linha de cima")
         self.bt2.pack()
@@ -46,10 +47,14 @@ class Painel:
         #implementar a função sair 
         pass
 
+    def print(self, event):
+        print('aeeeeeeeeeeeeee')
 
+
+#foma de se usar
 
 tk = Tk()
-
+#usb  = serial.Serial("COM4")
 Painel(tk)
 tk.mainloop()
 
