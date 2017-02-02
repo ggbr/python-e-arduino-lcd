@@ -1,13 +1,21 @@
 from tkinter import *
 import serial 
 
+
 class Painel:
 
     def __init__(self,janela,usb):
         self.usb = serial.Serial(usb)
         print('arduino conectado')
-        self.fr1 = Frame(janela)
+
+        #criando janelas 
+        self.fr1 = Frame(janela,pady=10)
         self.fr1.pack()
+
+        self.jb = Frame(janela,pady=20)
+        self.jb.pack()
+
+
 
         self.msg = Entry(self.fr1,text = 'Menssagem')
         self.msg.pack()
@@ -16,22 +24,22 @@ class Painel:
         self.bt1.pack()
         self.bt1.bind("<Button-1>", self.print)
 
-        self.bt2 = Button(self.fr1, text = "Ir para linha de cima")
+        self.bt2 = Button(self.jb, text = "Ir para linha de cima")
         self.bt2.pack()
         self.bt2.bind("<Button-1>", self.cima)
 
 
-        self.bt3 = Button(self.fr1, text = "Ir para linha de baixo")
+        self.bt3 = Button(self.jb, text = "Ir para linha de baixo")
         self.bt3.pack()
         self.bt3.bind("<Button-1>", self.baixo)
         
 
-        self.bt4 = Button(self.fr1, text = "Limpar LCD")
+        self.bt4 = Button(self.jb, text = "Limpar LCD")
         self.bt4.pack()
         self.bt4.bind("<Button-1>", self.lcd)
         
 
-        self.btSair = Button(self.fr1, text = "Sair")
+        self.btSair = Button(self.jb, text = "Sair")
         self.btSair.pack()
         self.btSair.bind("<Button-1>", self.print)
         

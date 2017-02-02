@@ -10,15 +10,7 @@ class Janela:
         self.msg['width']=26
         self.msg['height']=3
         self.msg.pack()
-        self.usb = self.usbBusca()
-        pass
-    
-   
-'''
-raiz=Tk()
-Janela(raiz)
-raiz.mainloop()
-'''
+
 
 def usbBusca():
         usbList = 'COM0','COM1','COM2','COM4','COM5','COM6','COM7','COM8','COM9','COM10','COM11','COM12','COM13'
@@ -38,11 +30,19 @@ def usbBusca():
                     usb = 0
                     
         
+        
+    
+   
 
-
+raiz=Tk()
 tk = Tk()
+'''
+Janela(raiz)
+raiz.mainloop()
+'''
 
-a= usbBusca()
+
+a = usbBusca()
 
 Painel(tk ,a)
 tk.mainloop()
