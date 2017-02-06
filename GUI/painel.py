@@ -37,6 +37,14 @@ class Painel:
         self.bt4 = Button(self.jb, text = "Limpar LCD")
         self.bt4.pack()
         self.bt4.bind("<Button-1>", self.lcd)
+
+        self.bt5 = Button(self.jb, text = "Som")
+        self.bt5.pack()
+        self.bt5.bind("<Button-1>", self.som)
+
+        self.bt6 = Button(self.jb, text = "Braço")
+        self.bt6.pack()
+        self.bt6.bind("<Button-1>", self.braco)
         
 
         self.btSair = Button(self.jb, text = "Sair")
@@ -70,6 +78,16 @@ class Painel:
     def print(self, event):
         msg = self.msg.get()
         self.usb.write(bytes(msg.encode(encoding='UTF-8')))
+        pass
+    
+    def som(self, event):
+        self.usb.write(b'7')
+        pass
+
+    def braco(self, event):
+        self.usb.write(b'6')
+        pass
+
 
 
 #foma de se usar

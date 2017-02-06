@@ -134,7 +134,48 @@ if (Serial.available()){  //verifica se tem dados diponível para leitura
           break;
         case '5':
           lcd.clear();
-          break;        
+          break;
+         case '6':
+          
+
+            for(pos = 0; pos < 90; pos++){
+                    s.write(pos);
+                    delay(10);
+                  }
+                for(pos = 90; pos >= 0; pos--)  {
+                 s.write(pos);
+                 delay(10);
+                }for(pos = 0; pos < 90; pos++){
+                    s.write(pos);
+                    delay(10);
+                  }
+                for(pos = 90; pos >= 0; pos--)  {
+                 s.write(pos);
+                 delay(10);
+                }for(pos = 0; pos < 90; pos++){
+                    s.write(pos);
+                    delay(10);
+                  }
+                for(pos = 90; pos >= 0; pos--)  {
+                 s.write(pos);
+                 delay(10);
+                }
+
+
+          break;
+          case '7':
+          for (int i = 0; i < length; i++) {
+              if (notes[i] == ' ') {
+                delay(beats[i] * tempo); // rest
+              } else {
+                playNote(notes[i], beats[i] * tempo);
+              }
+           
+              // pausa entre notas
+              delay(tempo / 2);
+            }
+
+        break;
         default:
           lcd.print(recebido);
         break;
@@ -177,44 +218,11 @@ if (irrecv.decode(&results)){
       lcd.print("ComuTech");
 
     }  
-     if (armazenavalor == 0xFFC23D) //Verifica se a tecla 9 foi acionada  
-    {  
-for (int i = 0; i < length; i++) {
-    if (notes[i] == ' ') {
-      delay(beats[i] * tempo); // rest
-    } else {
-      playNote(notes[i], beats[i] * tempo);
-    }
- 
-    // pausa entre notas
-    delay(tempo / 2);
-  }
-    }  
+   
     
  if (armazenavalor == 0xFF02FD) //Verifica se a tecla 9 foi acionada  
     {  
-    for(pos = 0; pos < 90; pos++){
-        s.write(pos);
-        delay(10);
-      }
-    for(pos = 90; pos >= 0; pos--)  {
-     s.write(pos);
-     delay(10);
-    }for(pos = 0; pos < 90; pos++){
-        s.write(pos);
-        delay(10);
-      }
-    for(pos = 90; pos >= 0; pos--)  {
-     s.write(pos);
-     delay(10);
-    }for(pos = 0; pos < 90; pos++){
-        s.write(pos);
-        delay(10);
-      }
-    for(pos = 90; pos >= 0; pos--)  {
-     s.write(pos);
-     delay(10);
-    }
+    
   }  
 
 
